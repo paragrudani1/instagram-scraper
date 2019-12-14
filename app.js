@@ -65,7 +65,7 @@ app.post('/instagram.tool', (req, res) => {
 
 
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
     console.log('Server started');
 })
 
