@@ -53,10 +53,10 @@ app.post('/instagram.tool', (req, res) => {
             scraper
                 .ScrapInstagram(userinput[userinput.length - 1].Value)
                 .then(data => {
-                    res.render('response/data', {
-                        userinput: userinput,
-                        data: data,
-                        title: 'Your Results'
+                        res.render('response/data', {
+                            userinput: userinput,
+                            data: data,
+                            title: 'Your Results'
                     })
                 })
         })
@@ -65,7 +65,7 @@ app.post('/instagram.tool', (req, res) => {
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(3001, () => {
     console.log('Server started');
 })
 
