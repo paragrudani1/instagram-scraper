@@ -17,8 +17,5 @@
   },
   "engines": {
     "node": "12.13.0"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
