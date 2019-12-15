@@ -35,12 +35,12 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // Home Page
-app.get('/instagram.tool', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index')
 })
 
 
-app.post('/instagram.tool', (req, res) => {
+app.post('/', (req, res) => {
     const input = {
         Value : req.body.Search
     }
@@ -65,7 +65,7 @@ app.post('/instagram.tool', (req, res) => {
 
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 8000, () => {
     console.log('Server started');
 })
 
