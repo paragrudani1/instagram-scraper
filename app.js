@@ -42,16 +42,17 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
     const input = {
-        Value : req.body.Search
+        username : req.body.Search
     }
     
     
     new UserInput(input)
     .save()
     .then(userInput => {
-        UserInput.find({}).then(userinput => {
+        UserInput.find({})
+        .then(userinput => {
             scraper
-                .ScrapInstagram(userinput[userinput.length - 1].Value)
+                .ScrapInstagram(userinput[userinput.length - 1].username)
                 .then(data => {
                         res.render('response/data', {
                             userinput: userinput,
