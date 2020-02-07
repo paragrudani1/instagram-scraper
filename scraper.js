@@ -2,11 +2,15 @@ const puppeteer = require('puppeteer');
 
 const ScrapInstagram = async (value) => {
     const browser = await puppeteer.launch({
+        headless: false,
+
+        // this is for Heroku Development
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
         ]
     });
+
     const page = await browser.newPage();
     await page.goto(`https://instagram.com/${value}`);
     

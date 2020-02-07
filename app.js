@@ -11,15 +11,15 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static('public'))
 // connect mongoose
-mongoose.connect('mongodb+srv://paragpatel:parag901@cluster0-gbj7v.mongodb.net/test?retryWrites=true&w=majority', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        console.log('MongoDB Connected')
-    }).catch(err => {
-        console.log(err);
-    })
+// mongoose.connect('mongodb+srv://paragpatel:parag901@cluster0-gbj7v.mongodb.net/test?retryWrites=true&w=majority', {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     })
+//     .then(() => {
+//         console.log('MongoDB Connected')
+//     }).catch(err => {
+//         console.log(err);
+//     })
 
 
 require('./models/value');
@@ -46,27 +46,27 @@ app.post('/', (req, res) => {
     }
     
     
-    new UserInput(input)
-    .save()
-    .then(userInput => {
-        UserInput.find({})
-        .then(userinput => {
+    // new UserInput(input)
+    // .save()
+    // .then(userInput => {
+        // UserInput.find({})
+        // .then(userinput => {
             scraper
-                .ScrapInstagram(userinput[userinput.length - 1].username)
+                .ScrapInstagram(input.username)
                 .then(data => {
                         res.render('response/data', {
-                            userinput: userinput,
+                            // userinput: userinput,
                             data: data,
                             title: 'Your Results'
                     })
                 })
         })
-    })
-})
+    // })
+// })
 
 
 
-app.listen(process.env.PORT || 8000, () => {
+app.listen(process.env.PORT || 8001, () => {
     console.log('Server started');
 })
 
