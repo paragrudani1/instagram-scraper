@@ -60,6 +60,7 @@ app.post('/', (req, res) => {
                             title: 'Your Results'
                     })
                 })
+                .catch(err => console.log(err))
         })
     // })
 // })
